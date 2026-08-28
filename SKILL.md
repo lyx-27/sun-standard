@@ -201,6 +201,7 @@ cd ~/.kiro/skills/sun-standard
 python3 run.py convert 4800 [-c USD] [--limit 6]   # 金额 → 孙本位
 python3 run.py score 正文.md                        # 账本密度跑分（也吃 stdin）
 python3 run.py card ledger.json [--name x]         # 结账单 → output/x.txt + x.svg
+python3 run.py compare compare.json [--name x]     # 对照图 → output/x.svg
 python3 run.py rates                               # 汇率表
 # 任何子命令加 --json 出机器可读
 ```
@@ -213,4 +214,17 @@ python3 run.py rates                               # 汇率表
 - `rates.json` —— 孙本位汇率表
 - `ledger.example.json` —— 账本 schema 模板
 - `examples/liquidation.{md,ledger.json}` —— 端到端样例（正文 100 分）
+- `examples/resume.compare.json` —— 对照图 schema 样例
 - `output/` —— 生成的卡片
+
+### 对照图 schema
+
+```json
+{
+  "title": "一样的三年。",
+  "left":  { "label": "常见写法", "lines": ["注水的那一版"], "verdict": "三年。一个数字都没有。" },
+  "right": { "label": "孙本位",   "lines": ["报数的那一版"], "verdict": "第二天照常开工。" }
+}
+```
+
+上下两栏，上压暗，下提亮，中间**不写评语**。让读者自己看落差。

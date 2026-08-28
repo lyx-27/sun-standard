@@ -82,6 +82,36 @@ def cmd_card(a):
     print()
 
 
+def cmd_compare(a):
+    cmp = json.loads(Path(a.compare).read_text(encoding="utf-8"))
+    svg = S.render_compare_svg(cmp, px=a.px)
+    out_dir = HERE / "output"
+    out_dir.mkdir(exist_ok=True)
+    stem = a.name or Path(a.compare).stem
+    sp = out_dir / f"{stem}.svg"
+    sp.write_text(svg, encoding="utf-8")
+
+    if a.json:
+        print(json.dumps({"svg_path": str(sp)}, ensure_ascii=False))
+        return
+    print()
+    if cmp.get("title"):
+        print(cmp["title"])
+    for side in ("left", "right"):
+        blk = cmp.get(side) or {}
+        print()
+        if blk.get("label"):
+            print(f"[{blk['label']}]")
+        for ln in blk.get("lines") or []:
+            print(ln)
+        if blk.get("verdict"):
+            print()
+            print(blk["verdict"])
+    print()
+    print(f"→ {sp}")
+    print()
+
+
 def cmd_rates(a):
     R = S.load_rates(a.rates)
     if a.json:
@@ -135,6 +165,13 @@ def main():
     k.add_argument("--px", type=int, default=760, help="SVG 宽度")
     k.add_argument("--json", action="store_true")
     k.set_defaults(fn=cmd_card)
+
+    p = sub.add_parser("compare", help="对照图（常见写法 vs 孙本位）→ svg")
+    p.add_argument("compare")
+    p.add_argument("--name", default=None)
+    p.add_argument("--px", type=int, default=880)
+    p.add_argument("--json", action="store_true")
+    p.set_defaults(fn=cmd_compare)
 
     r = sub.add_parser("rates", help="看汇率表")
     r.add_argument("--json", action="store_true")

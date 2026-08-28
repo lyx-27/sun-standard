@@ -132,11 +132,15 @@ cd ~/.kiro/skills/sun-standard
 
 python3 run.py score 正文.md              # 跑分，也吃 stdin
 python3 run.py card ledger.json           # 结账单，出 txt + svg
+python3 run.py compare compare.json       # 对照图，出 svg
 python3 run.py convert 4800               # 换算成孙本位
 python3 run.py rates                      # 看汇率表
 ```
 
 纯标准库。不联网。不要任何 key。任何子命令加 `--json` 出机器可读。
+
+对照是这套文体的第二号招式，三点五微克放在两点五吨旁边，不替任何一方发言。
+`compare` 把它渲成图：上栏压暗，下栏提亮，中间不写一句评语。
 
 ---
 
@@ -168,15 +172,16 @@ $ python3 run.py convert 50000000 -c USD
 ```
 sun-standard/
 ├── SKILL.md              审计流程 + 十四条招式 + 禁则
-├── sun_standard.py        引擎：换算 / 跑分 / 结账单渲染
+├── sun_standard.py        引擎：换算 / 跑分 / 结账单与对照图渲染
 ├── run.py                 命令行
 ├── rates.json             孙本位汇率表
 ├── ledger.example.json    账本模板
 └── examples/
-    ├── liquidation.*      一次爆仓，一百分
-    ├── resume.*           一份简历，一百分
-    ├── luckin.*           一杯瑞幸，九十五分
-    └── anti-pattern.md    抒情滑坡版，三点六分
+    ├── liquidation.*        一次爆仓，一百分
+    ├── resume.*             一份简历，一百分
+    ├── resume.compare.json  同一份简历的对照图
+    ├── luckin.*             一杯瑞幸，九十五分
+    └── anti-pattern.md      抒情滑坡版，三点六分
 ```
 
 中文数字是代码转的，不是模型写的。一千零五十六。两千一百四十。两口，不是二口。
