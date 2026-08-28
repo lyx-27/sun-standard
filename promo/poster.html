@@ -5,11 +5,22 @@
 <title>孙本位 · 展板</title>
 <style>
   :root{
+    /* 深色（默认） */
     --bg:#0b0b0d; --card:#131318; --line:#25252e;
     --fg:#f4f4f6; --mid:#b9b9c2; --dim:#75757f; --faint:#4a4a54;
     --gold:#d9a445; --red:#d4573f;
+    --tint-a:#17140e; --tint-b:#131318; --tint-line:#3a2f18;
+    --strike:#5e5e68; --strike-line:#3a3a44;
     --cjk:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
     --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  }
+  /* 浅色：收据纸。?theme=light 启用 */
+  html[data-theme="light"]{
+    --bg:#f4f1ea; --card:#fffefb; --line:#e3ddd0;
+    --fg:#1a1a1c; --mid:#4c4c52; --dim:#6b6b63; --faint:#767168;
+    --gold:#8a6210; --red:#b3341f;
+    --tint-a:#fdf5e4; --tint-b:#fffefb; --tint-line:#e0cfa4;
+    --strike:#767168; --strike-line:#b0aba0;
   }
   *{margin:0;padding:0;box-sizing:border-box}
   /* 高度跟随窗口，同一个文件可截 4:5(1200x1500) 和 3:4(1200x1600) */
@@ -43,7 +54,8 @@
   /* 两栏：发现 + 瑞幸 */
   .duo{display:grid;grid-template-columns:1fr 1.12fr;gap:20px}
   .luckin{display:flex;flex-direction:column;justify-content:space-between;
-          background:linear-gradient(160deg,#17140e 0%,#131318 60%);border-color:#3a2f18}
+          background:linear-gradient(160deg,var(--tint-a) 0%,var(--tint-b) 60%);
+          border-color:var(--tint-line)}
   .luckin .given{font-size:19px;line-height:1.8;color:var(--mid)}
   .luckin .punch{font-size:40px;line-height:1.3;font-weight:700;margin-top:18px}
   .luckin .foot{font-size:14px;color:var(--faint);margin-top:14px;font-family:var(--mono)}
@@ -51,6 +63,7 @@
   /* 行动：四小块 */
   .act{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 26px}
   .act .lead{font-size:21px;color:var(--fg);margin-bottom:16px;line-height:1.5}
+  .act .lead b,.hook h1 span{color:var(--gold)}
   .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
   .step{border-left:2px solid var(--gold);padding-left:14px}
   .step b{display:block;font-size:17px;color:var(--fg);margin-bottom:6px}
@@ -62,8 +75,8 @@
   /* 两栏：简历 + 跑分 */
   .duo2{display:grid;grid-template-columns:1.35fr 1fr;gap:20px;flex:1}
   .ba{display:flex;flex-direction:column;gap:14px}
-  .before{font-size:17px;line-height:1.7;color:#5e5e68;text-decoration:line-through;
-          text-decoration-color:#3a3a44}
+  .before{font-size:17px;line-height:1.7;color:var(--strike);text-decoration:line-through;
+          text-decoration-color:var(--strike-line)}
   .arrow{font-family:var(--mono);color:var(--faint);font-size:13px;letter-spacing:.2em}
   .after{font-size:19px;line-height:1.78;color:var(--fg)}
   .kicker{margin-top:auto;padding-top:18px;border-top:1px dashed var(--line);
@@ -88,6 +101,11 @@
   .repo .u{font-family:var(--mono);font-size:19px;color:var(--fg)}
   .repo .m{font-family:var(--mono);font-size:13px;color:var(--faint);margin-top:6px}
 </style>
+<script>
+  // ?theme=light 切浅色（收据纸）。默认深色。
+  if (new URLSearchParams(location.search).get('theme') === 'light')
+    document.documentElement.dataset.theme = 'light';
+</script>
 </head>
 <body>
 <div class="page">
