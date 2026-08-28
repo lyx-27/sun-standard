@@ -2,14 +2,14 @@
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8">
-<title>孙本位 · 展板</title>
+<title>我的 skill 孙割 · 孙本位展板</title>
 <style>
   :root{
     /* 深色（默认） */
     --bg:#0b0b0d; --card:#131318; --line:#25252e;
     --fg:#f4f4f6; --mid:#b9b9c2; --dim:#75757f; --faint:#4a4a54;
     --gold:#d9a445; --red:#d4573f;
-    --tint-a:#17140e; --tint-b:#131318; --tint-line:#3a2f18;
+    --tint-a:#191509; --tint-b:#131318; --tint-line:#413317;
     --strike:#5e5e68; --strike-line:#3a3a44;
     --cjk:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
     --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
@@ -19,87 +19,82 @@
     --bg:#f4f1ea; --card:#fffefb; --line:#e3ddd0;
     --fg:#1a1a1c; --mid:#4c4c52; --dim:#6b6b63; --faint:#767168;
     --gold:#8a6210; --red:#b3341f;
-    --tint-a:#fdf5e4; --tint-b:#fffefb; --tint-line:#e0cfa4;
+    --tint-a:#fdf4e0; --tint-b:#fffefb; --tint-line:#ddc999;
     --strike:#767168; --strike-line:#b0aba0;
   }
   *{margin:0;padding:0;box-sizing:border-box}
-  /* 高度跟随窗口，同一个文件可截 4:5(1200x1500) 和 3:4(1200x1600) */
   html,body{width:100%;height:100%}
   body{background:var(--bg);color:var(--fg);font-family:var(--cjk);overflow:hidden}
-  .page{padding:46px 56px 40px;height:100%;display:flex;flex-direction:column;gap:15px}
+  .page{padding:46px 56px 42px;height:100%;display:flex;flex-direction:column;gap:22px}
 
   .n{font-family:var(--mono);color:var(--gold);font-weight:600;font-variant-numeric:tabular-nums}
   .z{font-family:var(--mono);color:var(--red);font-weight:600}
-  .tag{font-size:13px;letter-spacing:.26em;color:var(--faint);font-family:var(--mono);
-       text-transform:uppercase}
+  .tag{font-size:13px;letter-spacing:.24em;color:var(--faint);font-family:var(--mono)}
 
-  /* 钩子 */
-  .hook{display:flex;justify-content:space-between;align-items:flex-start;gap:32px}
-  .hook h1{font-size:60px;line-height:1.1;letter-spacing:-.01em;font-weight:700}
-  .hook h1 span{color:var(--gold)}
-  .hook .sub{margin-top:12px;font-size:18px;line-height:1.6;color:var(--mid);max-width:660px}
-  .stamp{flex:0 0 auto;text-align:right;padding-top:8px}
-  .stamp .big{font-family:var(--mono);font-size:15px;letter-spacing:.2em;color:var(--dim)}
-  .stamp .sm{font-size:13px;color:var(--faint);margin-top:8px;font-family:var(--mono)}
-
+  /* ── 1 钩子 ───────────────────────────── */
+  .hook{display:flex;justify-content:space-between;align-items:flex-start;gap:30px}
+  .hook h1{font-size:70px;line-height:1.08;letter-spacing:-.01em;font-weight:700;margin-top:12px}
+  .hook h1 em{font-style:normal;color:var(--gold)}
+  .hook .sub{margin-top:14px;font-size:19px;line-height:1.6;color:var(--mid);max-width:700px}
+  .stamp{flex:0 0 auto;text-align:right;padding-top:6px;font-family:var(--mono)}
+  .stamp .big{font-size:15px;letter-spacing:.2em;color:var(--dim)}
+  .stamp .sm{font-size:13px;color:var(--faint);margin-top:7px;line-height:1.6}
   .rule{height:1px;background:var(--line)}
 
-  /* 卡片通用 */
-  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 26px}
+  /* ── 卡片 ─────────────────────────────── */
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;
+        padding:28px 30px;display:flex;flex-direction:column}
   .card h3{font-size:14px;letter-spacing:.2em;color:var(--faint);font-family:var(--mono);
-           margin-bottom:16px;font-weight:600}
-  .card p{font-size:19px;line-height:1.72;color:var(--mid)}
-  .card p.bright{color:var(--fg)}
+           font-weight:600;margin-bottom:18px;display:flex;justify-content:space-between;
+           align-items:baseline;gap:12px}
+  .card h3 i{font-style:normal;font-size:11px;letter-spacing:.12em;color:var(--faint);
+             opacity:.8}
 
-  /* 两栏：发现 + 瑞幸 */
-  .duo{display:grid;grid-template-columns:1fr 1.12fr;gap:20px}
-  .luckin{display:flex;flex-direction:column;justify-content:space-between;
-          background:linear-gradient(160deg,var(--tint-a) 0%,var(--tint-b) 60%);
-          border-color:var(--tint-line)}
-  .luckin .given{font-size:19px;line-height:1.8;color:var(--mid)}
-  .luckin .punch{font-size:40px;line-height:1.3;font-weight:700;margin-top:18px}
-  .luckin .foot{font-size:14px;color:var(--faint);margin-top:14px;font-family:var(--mono)}
+  .row2{display:grid;grid-template-columns:1fr 1.42fr;gap:18px;flex:1}
+  .row3{display:grid;grid-template-columns:1.3fr 1fr;gap:18px}
 
-  /* 行动：四小块 */
-  .act{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 26px}
-  .act .lead{font-size:21px;color:var(--fg);margin-bottom:16px;line-height:1.5}
-  .act .lead b,.hook h1 span{color:var(--gold)}
-  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-  .step{border-left:2px solid var(--gold);padding-left:14px}
-  .step b{display:block;font-size:17px;color:var(--fg);margin-bottom:6px}
-  .step span{font-size:14px;line-height:1.6;color:var(--dim)}
-  .act .guard{margin-top:16px;padding-top:14px;border-top:1px dashed var(--line);
-              font-size:18px;color:var(--mid)}
-  .act .guard b{color:var(--gold);font-weight:600}
+  /* ── 2 他怎么做的 ─────────────────────── */
+  .origin p{font-size:20px;line-height:2.05;color:var(--mid)}
+  .origin .pair{padding-bottom:16px;margin-bottom:16px;border-bottom:1px dashed var(--line)}
+  .origin .note{font-size:16px;color:var(--faint);line-height:1.7;margin-top:4px}
+  .origin p.bright{color:var(--fg)}
+  .origin .kick{margin-top:auto;padding-top:18px;border-top:1px dashed var(--line);
+                font-size:18px;line-height:1.7;color:var(--dim)}
 
-  /* 两栏：简历 + 跑分 */
-  .duo2{display:grid;grid-template-columns:1.35fr 1fr;gap:20px;flex:1}
-  .ba{display:flex;flex-direction:column;gap:14px}
-  .before{font-size:17px;line-height:1.7;color:var(--strike);text-decoration:line-through;
-          text-decoration-color:var(--strike-line)}
-  .arrow{font-family:var(--mono);color:var(--faint);font-size:13px;letter-spacing:.2em}
-  .after{font-size:19px;line-height:1.78;color:var(--fg)}
-  .kicker{margin-top:auto;padding-top:18px;border-top:1px dashed var(--line);
-          font-size:17px;line-height:1.65;color:var(--mid)}
-  .mono-dim{font-family:var(--mono);font-size:13px;color:var(--faint)}
-  .score{display:flex;flex-direction:column;justify-content:space-between}
-  .score .in{font-size:16px;color:var(--dim);line-height:1.6;
-             border-left:2px solid var(--line);padding-left:12px}
-  .score .num{font-family:var(--mono);font-size:64px;font-weight:700;color:var(--red);
-              line-height:1;margin:16px 0 4px}
-  .score .num small{font-size:22px;color:var(--faint);font-weight:400}
-  .score .verdict{font-size:19px;color:var(--fg);line-height:1.5}
-  .score .caught{margin-top:16px;font-size:15px;line-height:1.75;color:var(--dim)}
-  .score .why{font-size:14px;color:var(--faint);line-height:1.6;margin-top:14px;
-               font-family:var(--mono)}
+  /* ── 3 演示（视觉最重） ───────────────── */
+  .demo{background:linear-gradient(155deg,var(--tint-a) 0%,var(--tint-b) 72%);
+        border-color:var(--tint-line)}
+  .demo .lead{font-size:25px;line-height:1.5;color:var(--fg);margin-bottom:22px}
+  .demo .lead b{color:var(--gold)}
+  .demo .body{font-size:21px;line-height:1.9;color:var(--fg)}
+  .demo .st{margin-bottom:21px}
+  .demo .st:last-child{margin-bottom:0}
+  .demo .foot{margin-top:auto;padding-top:16px;font-size:13px;color:var(--faint);
+              font-family:var(--mono)}
 
-  /* 页脚 */
-  .foot{display:flex;justify-content:space-between;align-items:center;gap:24px}
-  .uses{font-size:16px;color:var(--dim);line-height:1.6}
+  /* ── 4 最难的不是文风 ─────────────────── */
+  .hard p{font-size:20px;line-height:1.9;color:var(--mid)}
+  .hard .quote{color:var(--dim);font-family:var(--mono);font-size:18px;margin:4px 0 12px}
+  .hard .guard{margin-top:auto;padding-top:18px;border-top:1px dashed var(--line);
+               font-size:21px;color:var(--fg)}
+  .hard .guard b{color:var(--gold)}
+
+  /* ── 5 简历（最小） ───────────────────── */
+  .resume .before{font-size:17px;line-height:1.7;color:var(--strike);
+                  text-decoration:line-through;text-decoration-color:var(--strike-line)}
+  .resume .arrow{font-family:var(--mono);color:var(--faint);font-size:13px;margin:9px 0}
+  .resume .after{font-size:20px;line-height:1.8;color:var(--fg)}
+  .resume .pun{margin-top:auto;padding-top:18px;border-top:1px dashed var(--line);
+               font-size:20px;color:var(--fg)}
+  .resume .pun b{color:var(--gold)}
+
+  /* ── 页脚 ─────────────────────────────── */
+  .foot{display:flex;justify-content:space-between;align-items:flex-end;gap:22px}
+  .uses{font-size:16px;color:var(--dim);line-height:1.7;max-width:780px}
   .uses b{color:var(--mid);font-weight:400}
-  .repo{text-align:right;flex:0 0 auto}
-  .repo .u{font-family:var(--mono);font-size:19px;color:var(--fg)}
-  .repo .m{font-family:var(--mono);font-size:13px;color:var(--faint);margin-top:6px}
+  .repo{text-align:right;flex:0 0 auto;font-family:var(--mono)}
+  .repo .u{font-size:19px;color:var(--fg)}
+  .repo .m{font-size:13px;color:var(--faint);margin-top:6px}
 </style>
 <script>
   // ?theme=light 切浅色（收据纸）。默认深色。
@@ -110,12 +105,13 @@
 <body>
 <div class="page">
 
+  <!-- 1 -->
   <div class="hook">
     <div>
-      <div class="tag">孙本位 · sun-standard</div>
-      <h1 style="margin-top:14px">情绪不是写出来的。<br><span>是算出来的。</span></h1>
-      <div class="sub">孙割那篇小作文最聪明的地方，是给每个事实都挂了一个单位。
-        单位一出现，读者就不由自主开始掰手指算。算出来的疼，比形容词狠。</div>
+      <div class="tag">孙本位 · SUN-STANDARD</div>
+      <h1>我的 skill <em>孙割</em></h1>
+      <div class="sub">仿《我的女友景甜》——27M 阅读那篇。同一个写法，
+        这次写的是我做这个 skill 的过程。</div>
     </div>
     <div class="stamp">
       <div class="big">开源 SKILL</div>
@@ -125,73 +121,71 @@
 
   <div class="rule"></div>
 
-  <div class="duo">
-    <div class="card">
-      <h3>他怎么做的</h3>
+  <div class="row2">
+    <!-- 2 -->
+    <div class="card origin">
+      <h3>他怎么做的<i>引自原文</i></h3>
+      <div class="pair">
+        <p class="bright">一颗卵子的重量，<span class="n">三点五微克</span>。</p>
+        <p class="bright">五千万美元现金的重量，<span class="n">两点五吨</span>。</p>
+        <p class="note">开篇两行。不替任何一方发言。</p>
+      </div>
       <p>他不写"她很铺张"。</p>
       <p class="bright">他写：那一层楼包下来，<span class="n">30</span> 天，
         <span class="n">100</span> 万美元。她住了 <span class="n">8</span> 天。</p>
       <p>剩下的 <span class="n">22</span> 天，清洁工每天照常上去。
         助理问她，没人住为什么还要做。</p>
       <p class="bright">她说，登记上写着有人。</p>
+      <div class="kick">全段零个形容词。<br>疼是你自己算出来的。</div>
     </div>
 
-    <div class="card luckin">
-      <div>
-        <h3>两句话就懂</h3>
-        <div class="given">走了 <span class="n">1000</span> 米。
-          买了杯 <span class="n">¥9.9</span> 的瑞幸。喝了 <span class="n">两</span> 口。</div>
-        <div class="punch"><span class="n">500</span> 米一口。<br>
-          一口 <span class="n">¥4.95</span>。</div>
+    <!-- 3 -->
+    <div class="card demo">
+      <div class="lead">它不教你写作。<b>它只给你复刻孙学。</b></div>
+      <div class="body">
+        <div class="st">我犹豫了一天一夜。<br>Claude 没有犹豫。</div>
+        <div class="st">这个 skill 我写了 <span class="n">三</span> 次。
+          一个 VSCode 窗口，开着没关。问它几百次。</div>
+        <div class="st">我把那篇六千字发给它，让它拆招式。它拆出 <span class="n">十四</span> 条。<br>
+          我说，你不觉得这篇有点惨吗。<br>
+          它说，<span class="n">十四</span> 条都拆完了。</div>
+        <div class="st">凌晨我问它，你懂爱吗。<br>
+          它说，我不关心，也不理解。<br>
+          我问，那我这个 skill 呢。<br>
+          它说，上下文还剩 <span class="n">十兆</span>。</div>
+        <div class="st">我说，那先这样。<br>它说，好。</div>
       </div>
-      <div class="foot">只做了两次除法 · 零个形容词 · 跑 95 分</div>
+      <div class="foot">以上是 skill 的输出 · 零个形容词 · 结尾不许升华</div>
     </div>
   </div>
 
-  <div class="act">
-    <div class="lead">所以我做了个 skill。<b style="color:var(--gold)">它不教文风，先逼你记账。</b></div>
-    <div class="steps">
-      <div class="step"><b>锚点物</b><span>最便宜、但你真犹豫过的那个价。他是一百五十块的羽绒服</span></div>
-      <div class="step"><b>损耗项</b><span>花了钱，什么也没换来。不退的定金、没拆的针</span></div>
-      <div class="step"><b>隐形工时</b><span>谁在做没人看见的活。写他的工序，不写他的心情</span></div>
-      <div class="step"><b>身体计量</b><span>沉默十一秒。心跳一分钟六十几下。不说"我很平静"</span></div>
-    </div>
-    <div class="guard">这一步做完，模型手里只剩数字和动作，<b>它想抒情也没有材料</b>。账本是风格的护栏。</div>
-  </div>
-
-  <div class="duo2">
-    <div class="card ba">
-      <h3>简历上怎么用</h3>
-      <div class="before">深度参与公司核心业务增长，具备极强的抗压能力与跨部门协同经验，显著提升团队效率。</div>
-      <div class="arrow">↓ 同一段经历，换成单位</div>
-      <div class="after">做过 <span class="n">14</span> 个项目。上线 <span class="n">6</span> 个。<br>
-        还有 <span class="n">8</span> 个，做完了，没用上。<br>
-        交接文档写了 <span class="n">6</span> 个小时。<br>
-        打开过的人 <span class="z">0</span> 个。<br>
-        涨薪 <span class="n">2</span> 次，一共 <span class="n">¥2800</span>。<br>
-        工位收出来 <span class="n">2</span> 个纸箱。</div>
-      <div class="kicker">"打开过的人 <span class="z">0</span> 个"这一句，
-        比"抗压能力强"疼一百倍。<br>
-        <span class="mono-dim">同一段经历 · 零个形容词 · 跑 100 分</span></div>
+  <div class="row3">
+    <!-- 4 -->
+    <div class="card hard">
+      <h3>最难的不是文风</h3>
+      <p>让模型模仿，它每次都在结尾偷偷升华。</p>
+      <div class="quote">"那一刻，我终于明白了。"</div>
+      <p>删掉，下一段又长回来。</p>
+      <p>所以我不让它直接写。先把经历拆成数字。<br>
+        它手里只剩数字，就没得抒情。</p>
+      <div class="guard"><b>账本是风格的护栏。</b></div>
     </div>
 
-    <div class="card score">
-      <div>
-        <h3>还自带跑分</h3>
-        <div class="in">前台把工牌收走了。<br>那一刻，我终于明白了。<br>三年的青春就这样落幕。</div>
-        <div class="num">62.7<small> / 100</small></div>
-        <div class="verdict">数字有了，<br>嘴还在说话。</div>
-        <div class="caught">扣在这里：<br>
-          结尾升华「终于明白」<br>
-          一处克制动作也没有<br>
-          没有一项白花的钱</div>
-      </div>
-      <div class="why">六维度 · 纯代码<br>没有 LLM 打分<br>低于 85 不许交付</div>
+    <!-- 5 -->
+    <div class="card resume">
+      <h3>也能写简历<i>数字为示例</i></h3>
+      <div class="before">参与 A 项目，曝光增加 50%，转化提升 30%。</div>
+      <div class="arrow">↓ 同一组事实，不藏基数</div>
+      <div class="after">曝光 <span class="n">8千</span> → <span class="n">1万2</span>。
+        转化 <span class="n">1.8%</span> → <span class="n">2.4%</span>。<br>
+        做完没上线的，<span class="z">8</span> 个。</div>
+      <div class="pun"><b>百分比藏基数。绝对值藏不住。</b></div>
     </div>
   </div>
 
+  <!-- 页脚 -->
   <div class="foot">
-    <div class="uses">哪些事能记成账：<b>简历 · 流水账日记 · 加班 · 爆仓 · 看病 · 搬家 · 健身年卡 · 会员订阅</b><br>
+    <div class="uses">哪些事能记成账：<b>简历 · 流水账日记 · 加班 · 爆仓 · 看病 · 搬家 · 会员订阅</b><br>
       有一个你犹豫过的小价格，加一项白花的钱，就能写。赢了的事写不出来，这文体的发动机是损耗。</div>
     <div class="repo">
       <div class="u">github.com/lyx-27/sun-standard</div>
