@@ -1,0 +1,18 @@
+{
+  "_note": "示例材料，数字是编的，只用来演示文体。真跑的时候 skill 会问你要真数字，不会替你填。",
+  "title": "结账",
+  "subject": "三年两个月",
+  "items": [
+    { "label": "入职那天团队", "qty": 11,  "unit": "个人" },
+    { "label": "走的时候",     "qty": 46,  "unit": "个人" },
+    { "label": "我招进来",     "qty": 9,   "unit": "个",     "note": "还在的两个" },
+    { "label": "做过的项目",   "qty": 14,  "unit": "个",     "note": "上线六个" },
+    { "label": "做完没上线的项目", "qty": 8, "unit": "个",   "note": "没用上", "loss": true },
+    { "label": "方案",         "qty": 47,  "unit": "页",     "note": "改了九版，最后删了", "loss": true },
+    { "label": "周报",         "qty": 156, "unit": "篇" },
+    { "label": "交接文档",     "qty": 6,   "unit": "个小时", "note": "打开过的人零个", "loss": true },
+    { "label": "涨薪",         "qty": 2,   "unit": "次",     "note": "一共两千八百块" },
+    { "label": "工位收出来",   "qty": 2,   "unit": "个纸箱" }
+  ],
+  "footer": "第二天照常开工"
+}

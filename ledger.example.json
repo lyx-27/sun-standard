@@ -1,0 +1,17 @@
+{
+  "title": "结账",
+  "subject": "一件事 · 时间",
+
+  "_schema": "每个 item 三种写法之一：钱 amount+currency / 量 qty+unit / 自由 value_display。note 是那句不解释的注解。loss:true 标记『花了，什么也没换来』。",
+
+  "items": [
+    { "label": "锚点物",   "amount": 22,     "currency": "CNY", "note": "犹豫了一下的那个价" },
+    { "label": "真正的数", "amount": 180000, "currency": "USD", "note": "没有犹豫" },
+    { "label": "次数",     "qty": 3,         "unit": "次",      "note": "第三次没有想" },
+    { "label": "沉默",     "qty": 11,        "unit": "秒",      "note": "我数了一下" },
+    { "label": "白花的钱", "amount": 1056,   "currency": "CNY", "note": "还剩十一个月", "loss": true },
+    { "label": "时刻",     "value_display": "三点四十七分",      "note": "系统消息，四个字" }
+  ],
+
+  "footer": "什么都没有发生"
+}

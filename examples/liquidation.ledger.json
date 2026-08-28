@@ -1,0 +1,18 @@
+{
+  "title": "结账",
+  "subject": "一次爆仓",
+  "items": [
+    { "label": "咖啡",       "amount": 22,     "currency": "CNY", "note": "那天没买" },
+    { "label": "仓位",       "amount": 180000, "currency": "USD", "note": "加了第三次" },
+    { "label": "加仓",       "qty": 3,         "unit": "次",      "note": "第三次没有想" },
+    { "label": "行情软件",   "amount": 1056,   "currency": "CNY", "note": "年费，还剩十一个月", "loss": true },
+    { "label": "手续费",     "amount": 2140,   "currency": "USD", "note": "赚赔都要付",       "loss": true },
+    { "label": "资金费率",   "amount": 416,    "currency": "USD", "note": "每八个小时一次，照常扣", "loss": true },
+    { "label": "止损单",     "qty": 1,         "unit": "张",      "note": "设了，改了，删了",   "loss": true },
+    { "label": "强平",       "value_display": "三点四十七分",      "note": "系统消息，四个字" },
+    { "label": "静音",       "qty": 6,         "unit": "个小时",  "note": "十四个未接" },
+    { "label": "工单",       "qty": 1,         "unit": "张",      "note": "两小时后回，模板" },
+    { "label": "心跳",       "value_display": "八十八下",          "note": "比平时快一点" }
+  ],
+  "footer": "第二天照常开盘"
+}

@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "name": "孙本位 / sun-standard",
+    "version": "1.0.0",
+    "source": "全部单位取自作者本人 2026-08 公开发布的长文（@justinsuntron on X）里他自己写出来的数字。只作为文体计量单位使用，不含任何第三方私密信息，不对任何真人作评价。",
+    "usd_cny": 7.1,
+    "usd_cny_note": "固定常量，不是实时汇率。本 skill 不联网。要改就改这里。"
+  },
+
+  "money": [
+    { "id": "banana",    "cw": "根", "name": "香蕉",   "value": 6200000,   "currency": "USD", "note": "会烂" },
+    { "id": "puffer",    "cw": "件", "name": "羽绒服", "value": 150,       "currency": "CNY", "note": "犹豫三天" },
+    { "id": "dorm",      "cw": "年", "name": "房租",   "value": 1000,      "currency": "CNY", "note": "北大宿舍" },
+    { "id": "hush",      "cw": "次", "name": "封口",   "value": 80000,     "currency": "CNY", "note": "想了三天" },
+    { "id": "floor",     "cw": "层", "name": "空楼",   "value": 1000000,   "currency": "USD", "note": "三十天，住了八天" },
+    { "id": "card",      "cw": "张", "name": "卡",     "value": 1000000,   "currency": "CNY", "note": "转到第三张的时候犹豫了一下" },
+    { "id": "betrothal", "cw": "份", "name": "彩礼",   "value": 30000000,  "currency": "CNY", "note": "两个名字，两个账号" },
+    { "id": "deposit",   "cw": "笔", "name": "定金",   "value": 200000,    "currency": "USD", "note": "不退" },
+    { "id": "ask",       "cw": "通", "name": "电话",   "value": 50000000,  "currency": "USD", "note": "让我想想" },
+    { "id": "checkup",   "cw": "次", "name": "检查",   "value": 3000,      "currency": "CNY", "note": "这类金额不需要我看明细" },
+    { "id": "film_cn",   "cw": "部", "name": "大片",   "value": 150000000, "currency": "CNY", "note": "请来做陪衬，什么都没有发生" },
+    { "id": "film_us",   "cw": "部", "name": "合拍片", "value": 150000000, "currency": "USD", "note": "名单越来越长" }
+  ],
+
+  "weight": [
+    { "id": "egg",   "name": "一颗卵子",     "value": 0.0000035, "unit": "千克", "display": "三点五微克" },
+    { "id": "cash",  "name": "五千万现金",   "value": 2500,      "unit": "千克", "display": "两点五吨" }
+  ],
+
+  "headcount": [
+    { "id": "refund",    "name": "领钱的人",   "value": 26,      "unit": "人", "note": "孩子举着爆米花" },
+    { "id": "staff",     "name": "助理",       "value": 11,      "unit": "人", "note": "早上六点半到，等我们睡了才走" },
+    { "id": "entourage", "name": "一行",       "value": 30,      "unit": "人", "note": "A330 按两百人设计" },
+    { "id": "detail",    "name": "随行配置",   "value": 26,      "unit": "人", "note": "另有两个无人机手远远跟着" },
+    { "id": "crowd",     "name": "看烟花的",   "value": 1000000, "unit": "人", "note": "涌来，退去。每年都是这样" }
+  ],
+
+  "duration": [
+    { "id": "silence",   "name": "沉默",       "value": 11,   "unit": "秒",   "note": "我数了一下" },
+    { "id": "polish",    "name": "磨十个指甲", "value": 60,   "unit": "分钟", "note": "磨到不刮人为止" },
+    { "id": "cleaning",  "name": "打扫一整层", "value": 120,  "unit": "分钟", "note": "登记上写着有人" },
+    { "id": "vacancy",   "name": "空置",       "value": 22,   "unit": "天",   "note": "每天照常上去" },
+    { "id": "hesitate",  "name": "犹豫",       "value": 3,    "unit": "天",   "note": "一件一百五十块的羽绒服" },
+    { "id": "flight",    "name": "改主意一次", "value": 11,   "unit": "小时", "note": "直线距离九千五百公里" },
+    { "id": "stay",      "name": "住到腻",     "value": 14,   "unit": "天",   "note": "太安静了" },
+    { "id": "wait",      "name": "等一个通过", "value": 19,   "unit": "年",   "note": "我没有再申请第二次" }
+  ],
+
+  "count": [
+    { "id": "tape",      "name": "胶带",       "value": 50, "unit": "卷", "note": "三十卷，后来又补了二十卷" },
+    { "id": "cards",     "name": "卡",         "value": 5,  "unit": "张", "note": "轮着转" },
+    { "id": "dossier",   "name": "那份东西",   "value": 45, "unit": "页", "note": "我全部相信。但是我一个字也不信" },
+    { "id": "blood",     "name": "抽血",       "value": 8,  "unit": "管", "note": "空腹，天还没亮" },
+    { "id": "heartbeat", "name": "心跳",       "value": 62, "unit": "次/分钟", "note": "我又数了一遍，还是很稳" },
+    { "id": "greeting",  "name": "写一句你好", "value": 40, "unit": "分钟", "note": "她没有通过" }
+  ],
+
+  "loss": [
+    { "id": "ballast", "name": "配平燃油", "note": "太轻了，加到够重为止。到了地方放掉。每次都这样" },
+    { "id": "glass",   "name": "一整面玻璃", "note": "胶痕清不掉，朝着大西洋" },
+    { "id": "needles", "name": "八天的促排针", "note": "要冷藏的，一支没拆" },
+    { "id": "deposit", "name": "二十万美元定金", "note": "不退。她一月就准备好了" },
+    { "id": "vacancy", "name": "二十二天空房", "note": "清洁工每天照常上去" },
+    { "id": "crew",    "name": "机组",     "note": "每天照常报到" },
+    { "id": "tape2",   "name": "又贴了几天", "note": "没人告诉她们不用贴了" },
+    { "id": "request", "name": "一个好友申请", "note": "没有通过。我没有再申请第二次" }
+  ]
+}

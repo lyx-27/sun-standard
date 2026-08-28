@@ -1,0 +1,13 @@
+{
+  "title": "结账",
+  "subject": "一杯瑞幸",
+  "items": [
+    { "label": "咖啡",   "amount": 9.9,  "currency": "CNY" },
+    { "label": "走了",   "qty": 1000,    "unit": "米" },
+    { "label": "喝了",   "qty": 2,       "unit": "口" },
+    { "label": "",       "value_display": "五百米一口" },
+    { "label": "一口",   "amount": 4.95, "currency": "CNY" },
+    { "label": "剩下的", "value_display": "还在杯子里", "note": "没喝完", "loss": true }
+  ],
+  "footer": "什么都没有发生"
+}
