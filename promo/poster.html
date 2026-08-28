@@ -25,7 +25,7 @@
   *{margin:0;padding:0;box-sizing:border-box}
   html,body{width:100%;height:100%}
   body{background:var(--bg);color:var(--fg);font-family:var(--cjk);overflow:hidden}
-  .page{padding:46px 56px 42px;height:100%;display:flex;flex-direction:column;gap:22px}
+  .page{padding:40px 56px 34px;height:100%;display:flex;flex-direction:column;gap:17px}
 
   .n{font-family:var(--mono);color:var(--gold);font-weight:600;font-variant-numeric:tabular-nums}
   .z{font-family:var(--mono);color:var(--red);font-weight:600}
@@ -33,7 +33,7 @@
 
   /* ── 1 钩子 ───────────────────────────── */
   .hook{display:flex;justify-content:space-between;align-items:flex-start;gap:30px}
-  .hook h1{font-size:70px;line-height:1.08;letter-spacing:-.01em;font-weight:700;margin-top:12px}
+  .hook h1{font-size:64px;line-height:1.08;letter-spacing:-.01em;font-weight:700;margin-top:12px}
   .hook h1 em{font-style:normal;color:var(--gold)}
   .hook .sub{margin-top:14px;font-size:19px;line-height:1.6;color:var(--mid);max-width:700px}
   .stamp{flex:0 0 auto;text-align:right;padding-top:6px;font-family:var(--mono)}
@@ -43,37 +43,47 @@
 
   /* ── 卡片 ─────────────────────────────── */
   .card{background:var(--card);border:1px solid var(--line);border-radius:14px;
-        padding:28px 30px;display:flex;flex-direction:column}
-  .card h3{font-size:14px;letter-spacing:.2em;color:var(--faint);font-family:var(--mono);
-           font-weight:600;margin-bottom:18px;display:flex;justify-content:space-between;
+        padding:24px 30px;display:flex;flex-direction:column}
+  .card h3{margin-bottom:16px;display:flex;justify-content:space-between;
            align-items:baseline;gap:12px}
-  .card h3 i{font-style:normal;font-size:11px;letter-spacing:.12em;color:var(--faint);
-             opacity:.8}
+  .card h3 .t{font-size:26px;font-weight:700;color:var(--fg);font-family:var(--cjk);
+              letter-spacing:.01em;position:relative;padding-left:17px}
+  .card h3 .t::before{content:"";position:absolute;left:0;top:.16em;bottom:.16em;width:5px;
+                      background:var(--gold);border-radius:3px}
+  .card h3 i{font-style:normal;font-size:12px;letter-spacing:.14em;color:var(--faint);
+             font-family:var(--mono);font-weight:400;flex:0 0 auto}
 
-  .row2{display:grid;grid-template-columns:1fr 1.42fr;gap:18px;flex:1}
+  .row2{display:grid;grid-template-columns:1fr 1.42fr;gap:18px;align-items:start}
   .row3{display:grid;grid-template-columns:1.3fr 1fr;gap:18px}
 
   /* ── 2 他怎么做的 ─────────────────────── */
-  .origin p{font-size:20px;line-height:2.05;color:var(--mid)}
+  .origin p{font-size:20px;line-height:1.86;color:var(--mid)}
   .origin .pair{padding-bottom:16px;margin-bottom:16px;border-bottom:1px dashed var(--line)}
   .origin .note{font-size:16px;color:var(--faint);line-height:1.7;margin-top:4px}
   .origin p.bright{color:var(--fg)}
-  .origin .kick{margin-top:auto;padding-top:18px;border-top:1px dashed var(--line);
+  .origin .kick{margin-top:auto;padding-top:14px;border-top:1px dashed var(--line);
                 font-size:18px;line-height:1.7;color:var(--dim)}
 
   /* ── 3 演示（视觉最重） ───────────────── */
   .demo{background:linear-gradient(155deg,var(--tint-a) 0%,var(--tint-b) 72%);
         border-color:var(--tint-line)}
-  .demo .lead{font-size:25px;line-height:1.5;color:var(--fg);margin-bottom:22px}
+  .demo .lead{font-size:27px;line-height:1.4;color:var(--fg);margin-bottom:20px;
+              position:relative;padding-left:17px}
+  .demo .lead::before{content:"";position:absolute;left:0;top:.14em;bottom:.14em;width:5px;
+                      background:var(--gold);border-radius:3px}
   .demo .lead b{color:var(--gold)}
-  .demo .body{font-size:21px;line-height:1.9;color:var(--fg)}
-  .demo .st{margin-bottom:21px}
+  .demo .body{font-size:21px;line-height:1.78;color:var(--fg)}
+  .demo .st{margin-bottom:15px}
+  .demo .sample{display:flex;align-items:center;gap:12px;margin:2px 0 14px;
+                font-family:var(--mono);font-size:14px;letter-spacing:.2em;color:var(--gold)}
+  .demo .sample::after{content:"";flex:1;height:1px;background:var(--tint-line)}
   .demo .st:last-child{margin-bottom:0}
+  .demo .tail{color:var(--fg)}
   .demo .foot{margin-top:auto;padding-top:16px;font-size:13px;color:var(--faint);
               font-family:var(--mono)}
 
   /* ── 4 最难的不是文风 ─────────────────── */
-  .hard p{font-size:20px;line-height:1.9;color:var(--mid)}
+  .hard p{font-size:20px;line-height:1.88;color:var(--mid)}
   .hard .quote{color:var(--dim);font-family:var(--mono);font-size:18px;margin:4px 0 12px}
   .hard .guard{margin-top:auto;padding-top:18px;border-top:1px dashed var(--line);
                font-size:21px;color:var(--fg)}
@@ -90,7 +100,7 @@
 
   /* ── 页脚 ─────────────────────────────── */
   .foot{display:flex;justify-content:space-between;align-items:flex-end;gap:22px}
-  .uses{font-size:16px;color:var(--dim);line-height:1.7;max-width:780px}
+  .uses{font-size:15px;color:var(--dim);line-height:1.6;max-width:780px}
   .uses b{color:var(--mid);font-weight:400}
   .repo{text-align:right;flex:0 0 auto;font-family:var(--mono)}
   .repo .u{font-size:19px;color:var(--fg)}
@@ -98,8 +108,16 @@
 </style>
 <script>
   // ?theme=light 切浅色（收据纸）。默认深色。
-  if (new URLSearchParams(location.search).get('theme') === 'light')
-    document.documentElement.dataset.theme = 'light';
+  const q = new URLSearchParams(location.search);
+  if (q.get('theme') === 'light') document.documentElement.dataset.theme = 'light';
+  // ?probe=1 把内容实际高度写进 title，配 --dump-dom 量溢出
+  if (q.get('probe')) addEventListener('load', () => {
+    const pg = document.querySelector('.page');
+    const end = document.querySelector('.page > :last-child').getBoundingClientRect().bottom;
+    const pad = parseFloat(getComputedStyle(pg).paddingBottom);
+    document.title = 'END=' + Math.round(end) + ' NEED=' + Math.round(innerHeight - pad)
+                   + ' SLACK=' + Math.round(innerHeight - pad - end);
+  });
 </script>
 </head>
 <body>
@@ -124,13 +142,13 @@
   <div class="row2">
     <!-- 2 -->
     <div class="card origin">
-      <h3>他怎么做的<i>引自原文</i></h3>
+      <h3><span class="t">他怎么做的</span><i>引自原文</i></h3>
       <div class="pair">
         <p class="bright">一颗卵子的重量，<span class="n">三点五微克</span>。</p>
         <p class="bright">五千万美元现金的重量，<span class="n">两点五吨</span>。</p>
         <p class="note">开篇两行。不替任何一方发言。</p>
       </div>
-      <p>他不写"她很铺张"。</p>
+      <p>他不写“她很铺张”。</p>
       <p class="bright">他写：那一层楼包下来，<span class="n">30</span> 天，
         <span class="n">100</span> 万美元。她住了 <span class="n">8</span> 天。</p>
       <p>剩下的 <span class="n">22</span> 天，清洁工每天照常上去。
@@ -143,16 +161,18 @@
     <div class="card demo">
       <div class="lead">它不教你写作。<b>它只给你复刻孙学。</b></div>
       <div class="body">
-        <div class="st">我犹豫了一天一夜。<br>Claude 没有犹豫。</div>
-        <div class="st">这个 skill 我写了 <span class="n">三</span> 次。
-          一个 VSCode 窗口，开着没关。问它几百次。</div>
+        <div class="sample">SKILL 输出样例</div>
+        <div class="st">这个 skill 我写了 <span class="n">三</span> 次。前 <span class="n">两</span> 次删了。<br>
+          一个 VSCode 窗口，开着没关。<br>
+          问它几百次，答案一半没用上。</div>
         <div class="st">我把那篇六千字发给它，让它拆招式。它拆出 <span class="n">十四</span> 条。<br>
           我说，你不觉得这篇有点惨吗。<br>
-          它说，<span class="n">十四</span> 条都拆完了。</div>
-        <div class="st">凌晨我问它，你懂爱吗。<br>
+          它说，<span class="n">十四</span> 条都拆完了。<br>
+          我沉默了。</div>
+        <div class="st">我继续问它，你真的懂这个故事吗。<br>
           它说，我不关心，也不理解。<br>
           我问，那我这个 skill 呢。<br>
-          它说，上下文还剩 <span class="n">十兆</span>。</div>
+          它说，再不存，上下文要爆了。</div>
         <div class="st">我说，那先这样。<br>它说，好。</div>
       </div>
       <div class="foot">以上是 skill 的输出 · 零个形容词 · 结尾不许升华</div>
@@ -162,9 +182,9 @@
   <div class="row3">
     <!-- 4 -->
     <div class="card hard">
-      <h3>最难的不是文风</h3>
+      <h3><span class="t">最难的不是文风</span></h3>
       <p>让模型模仿，它每次都在结尾偷偷升华。</p>
-      <div class="quote">"那一刻，我终于明白了。"</div>
+      <div class="quote">“那一刻，我终于明白了。”</div>
       <p>删掉，下一段又长回来。</p>
       <p>所以我不让它直接写。先把经历拆成数字。<br>
         它手里只剩数字，就没得抒情。</p>
@@ -173,7 +193,7 @@
 
     <!-- 5 -->
     <div class="card resume">
-      <h3>也能写简历<i>数字为示例</i></h3>
+      <h3><span class="t">也能写简历</span><i>数字为示例</i></h3>
       <div class="before">参与 A 项目，曝光增加 50%，转化提升 30%。</div>
       <div class="arrow">↓ 同一组事实，不藏基数</div>
       <div class="after">曝光 <span class="n">8千</span> → <span class="n">1万2</span>。
