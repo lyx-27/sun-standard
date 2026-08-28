@@ -84,7 +84,7 @@ def cmd_card(a):
 
 def cmd_compare(a):
     cmp = json.loads(Path(a.compare).read_text(encoding="utf-8"))
-    svg = S.render_compare_svg(cmp, px=a.px)
+    svg = S.render_compare_svg(cmp, px=a.px, scale=a.scale)
     out_dir = HERE / "output"
     out_dir.mkdir(exist_ok=True)
     stem = a.name or Path(a.compare).stem
@@ -170,6 +170,8 @@ def main():
     p.add_argument("compare")
     p.add_argument("--name", default=None)
     p.add_argument("--px", type=int, default=880)
+    p.add_argument("--scale", type=float, default=1.0,
+                   help="字号行距倍数。发社交平台首图用 1.4 左右，行数要砍到五行内")
     p.add_argument("--json", action="store_true")
     p.set_defaults(fn=cmd_compare)
 

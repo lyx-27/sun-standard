@@ -459,14 +459,21 @@ def _esc(s: str) -> str:
     return "".join(_SVG_ESC.get(c, c) for c in str(s))
 
 
-def render_compare_svg(cmp: dict, px: int = 880, cols: int = 62) -> str:
-    """对照图。上下两栏，左栏压暗，右栏提亮。竖排是为了手机。
+def render_compare_svg(cmp: dict, px: int = 880, cols: int = 62, scale: float = 1.0) -> str:
+    """对照图。上下两栏，上压暗下提亮。竖排是为了手机。
+
+    scale 放大字号和行距。发社交平台时缩略图会缩到一半宽，
+    行数少的图配大字才看得清，所以首图用 scale 1.4 左右、行数砍到五行以内。
 
     schema: {title, left:{label,lines[],verdict}, right:{label,lines[],verdict}}
     """
+    def s(v):
+        return round(v * scale, 1)
+
     title = (cmp.get("title") or "").strip()
+    cols = max(12, int(cols / scale))
     pad_x = 56
-    y = 92
+    y = s(92)
     body: list[str] = []
 
     FONT = ("ui-monospace,'SF Mono',Menlo,Consolas,"
@@ -474,47 +481,47 @@ def render_compare_svg(cmp: dict, px: int = 880, cols: int = 62) -> str:
 
     if title:
         body.append(f'<text x="{pad_x}" y="{y}" class="t">{_esc(title)}</text>')
-        y += 62
+        y += s(62)
 
     for side, dim in (("left", True), ("right", False)):
         blk = cmp.get(side) or {}
         label = (blk.get("label") or "").strip()
         if label:
             body.append(f'<text x="{pad_x}" y="{y}" class="tag">{_esc(label)}</text>')
-            y += 34
+            y += s(34)
         cls = "dim" if dim else "ln"
         for raw in blk.get("lines") or []:
             if not raw.strip():
-                y += 14
+                y += s(14)
                 continue
             for i, seg in enumerate(_wrap(raw, cols)):
-                x = pad_x + (0 if i == 0 else 22)
+                x = pad_x + (0 if i == 0 else s(22))
                 body.append(f'<text x="{x}" y="{y}" class="{cls}">{_esc(seg)}</text>')
-                y += 32
-            y += 6
+                y += s(32)
+            y += s(6)
         v = (blk.get("verdict") or "").strip()
         if v:
-            y += 14
+            y += s(14)
             for seg in _wrap(v, cols):
                 body.append(f'<text x="{pad_x}" y="{y}" class="verdict">{_esc(seg)}</text>')
-                y += 36
-        y += 46
+                y += s(36)
+        y += s(46)
 
-    y += 4
+    y += s(4)
     body.append(f'<text x="{px - pad_x}" y="{y}" class="mark" text-anchor="end">孙本位 · sun-standard</text>')
-    h = y + 40
+    h = int(y + s(40))
 
     return f'''<svg xmlns="http://www.w3.org/2000/svg" width="{px}" height="{h}" viewBox="0 0 {px} {h}" role="img" aria-label="{_esc(title)}">
   <title>{_esc(title)}</title>
   <style>
     text {{ font-family: {FONT}; }}
     .bg      {{ fill:#0d0d0f; }}
-    .t       {{ fill:#f2f2f2; font-size:28px; }}
-    .tag     {{ fill:#5f5f68; font-size:14px; letter-spacing:.22em; }}
-    .dim     {{ fill:#6a6a72; font-size:19px; }}
-    .ln      {{ fill:#dcdce1; font-size:19px; }}
-    .verdict {{ fill:#f2f2f2; font-size:22px; }}
-    .mark    {{ fill:#3d3d45; font-size:12px; letter-spacing:.16em; }}
+    .t       {{ fill:#f2f2f2; font-size:{s(28)}px; }}
+    .tag     {{ fill:#5f5f68; font-size:{s(14)}px; letter-spacing:.22em; }}
+    .dim     {{ fill:#6a6a72; font-size:{s(19)}px; }}
+    .ln      {{ fill:#dcdce1; font-size:{s(19)}px; }}
+    .verdict {{ fill:#f2f2f2; font-size:{s(22)}px; }}
+    .mark    {{ fill:#3d3d45; font-size:{s(12)}px; letter-spacing:.16em; }}
   </style>
   <rect class="bg" width="{px}" height="{h}"/>
   {chr(10).join("  " + b for b in body)}
