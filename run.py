@@ -39,8 +39,9 @@ def cmd_convert(a):
     for u in res["units"]:
         unit = S.cn_money(u["unit_value"], u["unit_currency"])
         cw, name = u.get("cw", ""), u["name"]
+        # 单位名只出现一次：「八点零六根香蕉。一根六百二十万美元，会烂。」
         print(f"{S.cn_qty(u['ratio_display'])}{cw}{name}。"
-              f"一{cw}{name}{unit}，{u['note']}。")
+              f"一{cw}{unit}，{u['note']}。")
     print()
 
 
