@@ -1,7 +1,7 @@
 {
   "meta": {
     "name": "孙本位 / sun-standard",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "source": "全部单位取自作者本人 2026-08 公开发布的长文（@justinsuntron on X）里他自己写出来的数字。只作为文体计量单位使用，不含任何第三方私密信息，不对任何真人作评价。",
     "usd_cny": 7.1,
     "usd_cny_note": "固定常量，不是实时汇率。本 skill 不联网。要改就改这里。"

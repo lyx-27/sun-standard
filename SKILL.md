@@ -11,7 +11,7 @@ description: |
   记账是这套文体的发动机：账本先立，风格才不会滑坡成抒情散文。
 license: MIT
 metadata:
-  version: "1.0.0"
+  version: "1.1.0"
 ---
 
 # 孙本位 / sun-standard
@@ -155,8 +155,11 @@ python3 run.py score <正文.md>
 - **有损耗科目**，十分。损耗项几项。目标两项。
 - **结尾不升华**，十分。末三句的升华词加全文论述腔。目标零。
 
-分数可解释、可截图，本身就是二次传播物。已校准：原文级样本一百分，
-同一个故事的"抒情滑坡版"三点六分。跑分输出也是报数形态，不排表。
+分数可解释、可截图，本身就是二次传播物。跑分输出也是报数形态，不排表。
+
+**校准基线**（改动词表或权重后要重跑，确认这三个点还分得开）：
+原文全文 **99.6**（184 计量点 / 43 处克制动作 / 17 项损耗科目，扣 0.4 在两个抒情词）；
+同一故事的抒情滑坡版 **3.6**；带"我终于明白了"的四行 **62.7**。
 
 ## 六、禁则（硬性）
 
@@ -209,13 +212,16 @@ python3 run.py rates                               # 汇率表
 ## 九、文件
 
 - `SKILL.md` —— 本文件：审计流程 + 招式清单 + 禁则
-- `sun_standard.py` —— 引擎：换算 / 跑分 / 结账单渲染（纯 stdlib，不联网）
-- `run.py` —— CLI
-- `rates.json` —— 孙本位汇率表
+- `sun_standard.py` —— 引擎：换算 / 跑分 / 结账单与对照图渲染（纯 stdlib，不联网）
+- `run.py` —— CLI：`score` / `card` / `compare` / `convert` / `rates`
+- `rates.json` —— 孙本位汇率表（钱那一类每条带 `cw` 量词）
 - `ledger.example.json` —— 账本 schema 模板
 - `examples/liquidation.{md,ledger.json}` —— 端到端样例（正文 100 分）
-- `examples/resume.compare.json` —— 对照图 schema 样例
-- `output/` —— 生成的卡片
+- `examples/resume.{md,ledger.json,compare.json}` —— 简历用法 + 对照图 schema
+- `examples/luckin.{md,ledger.json}` —— 极小材料也能写（95 分，扣在损耗只有一项）
+- `examples/anti-pattern.md` —— 抒情滑坡负样本（3.6 分），跑分判别力的对照
+- `promo/poster.html` + `promo/shot.sh` —— 展板与截图（深浅两套主题，出 4:5 / 3:4）
+- `output/` —— 生成的卡片（不入库）
 
 ### 对照图 schema
 
